@@ -1,0 +1,23 @@
+{
+  "name": "fresh-project",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Package.json to resolve dependencies for Deno",
+  "main": "main.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mat fukano",
+  "license": "ISC",
+  "dependencies": {
+    "geist": "^1.2.1",
+    "postgres": "^3.4.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.10",
+    "@types/prettier": "^3.0.0",
+    "prettier": "^3.2.3",
+    "prettier-plugin-tailwindcss": "^0.5.11",
+    "tailwindcss": "^3.4.1"
+  }
+}
