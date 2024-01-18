@@ -6,11 +6,12 @@ export const handler: Handlers<Boba> = {
     async GET(req: Request, ctx: FreshContext) {
 
         // -- DEBUG -- 
-        console.log(`ctx: `);
-        console.log(ctx);
+        // console.log(`ctx: `);
+        // console.log(ctx);
 
-        console.log(`req: `);
-        console.log(req);
+        // console.log(`req: `);
+        // console.log(req);
+        
 
         // -- END DEBUG
         
