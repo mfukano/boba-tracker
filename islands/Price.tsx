@@ -45,7 +45,7 @@ function Price() {
 
     return (
         <>
-            <input class="bg-slate-200 rounded-sm" type="text" name="price" value={price} onChange={handleChange} required />
+            <input class="form-input" type="text" name="price" value={price} onChange={handleChange} required />
             {error && 
                 <div class="bg-red-400 text-center p-2 font-medium rounded-sm">
                     No letters, dummy!

@@ -44,19 +44,19 @@ export default function Add() {
                 <form method="post" className="boba-form">
                     <div className="form-item">
                         <label htmlFor="flavor">
-                            Flavor
+                            What flavor did you get? 
                         </label>
-                        <input class="bg-slate-200 rounded-sm" type="text" name="flavor" value="" required />
+                        <input class="form-input" type="text" name="flavor" value="" required />
                     </div>
                     <div className="form-item">
                         <label htmlFor="vendor">
-                            Vendor
+                            Where'd you get it? 
                         </label>
-                        <input class="bg-slate-200 rounded-sm" type="text" name="vendor" value="" required />
+                        <input class="form-input" type="text" name="vendor" value="" required />
                     </div>
                     <div className="form-item">
                         <label htmlFor="Price">
-                            Price
+                            What was the price?
                         </label>
                         <Price />
                     </div>

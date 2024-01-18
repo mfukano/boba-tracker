@@ -136,18 +136,50 @@ html {
   font-variant-numeric: tabular-nums;
 }
 
+
+/**!SECTION
+ * This is where my custom styles start for components rendered and not just theming
+*/
+.form-container {
+  @apply 
+    grid 
+    grid-cols-4 
+    gap-4
+  ;
+}
 .boba-form {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
+  /* display: flex; */
+  /* flex-flow: column; */
+  /* align-items: center; */
   gap: 30px;
+  @apply 
+    col-span-full 
+    p-6
+    md:col-start-2 
+    md:col-end-4
+  ;
+}
+.form-input {
+  @apply 
+    col-span-full 
+    rounded-md 
+    border-slate-500 
+    border-2
+    h-12
+    text-xl
+    p-4
+    tracking-wider
+    md:col-span-4
+  ;
 }
 .form-item {
   display: flex;
   flex-flow: column;
+  margin-bottom: 20px;
 }
 .form-item label {
   font-style: italic;
+  @apply text-lg;
 }
 
 #add-boba-dialog {
@@ -175,3 +207,4 @@ html {
   width: 100svw;
   height: 100svh;
 }
+
