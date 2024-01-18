@@ -140,6 +140,42 @@ html {
 /**!SECTION
  * This is where my custom styles start for components rendered and not just theming
 */
+.branding {
+  @apply
+    text-3xl
+    text-center
+    p-6
+    tracking-wide
+  ;
+}
+.navigation {
+  @apply
+    fixed
+    bottom-0
+    w-full
+    ;
+  }
+.links {
+  @apply
+    flex
+    flex-row
+    justify-between
+  ;
+}
+.nav-link {
+  @apply
+  bg-slate-200
+    w-1/3
+    p-4
+    text-center
+    border-r-2
+    last:border-r-0
+    border-slate-950
+
+
+  ;
+}
+
 .form-container {
   @apply 
     grid 

@@ -60,7 +60,7 @@ export default function Add() {
                         </label>
                         <Price />
                     </div>
-                    <button class="bg-teal-700 text-slate-50 p-6 text-xl rounded-md" type="submit">Add Drink</button>
+                    <button class="bg-teal-700 text-slate-50 p-6 text-xl rounded-md w-full" type="submit">Add Drink</button>
                 </form>
             </div>
         </div>

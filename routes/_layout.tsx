@@ -1,19 +1,27 @@
 import { PageProps } from "$fresh/server.ts";
-import { Component } from "preact";
 
 export default function Layout({ Component }: PageProps) {
-    return (
-        <div className="layout">
-            <header>
-                <h1 class="text-3xl">Maggie's Boba Tracker</h1>
-                <ul>
-                    <li><a href="/boba">Home</a></li>
-                    <li><a href="/add">Add</a></li>
-                    <li><a href="">Stats</a></li>
-                </ul>
-            </header>
+  return (
+    <div className="layout">
+      <header>
+        <h1 class="branding">Maggie's Boba Tracker</h1>
+      </header>
 
-            <Component />
-        </div>
-    )
+      <Component />
+
+      <div className="navigation">
+        <ul class="links">
+          <a class="nav-link" href="/boba">
+            <li>Home</li>
+          </a>
+          <a class="nav-link" href="/add">
+            <li>Add</li>
+          </a>
+          <a class="nav-link" href="">
+            <li>Stats</li>
+          </a>
+        </ul>
+      </div>
+    </div>
+  );
 }
