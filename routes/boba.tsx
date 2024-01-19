@@ -11,8 +11,6 @@ export const handler: Handlers<Boba> = {
 
         // console.log(`req: `);
         // console.log(req);
-        
-
         // -- END DEBUG
         
         const drinks = await getAllDrinks();
@@ -24,27 +22,30 @@ export const handler: Handlers<Boba> = {
 export default function Page(props: PageProps) {
     const { drinks, avgPrice } = props.data;
     return (
-        <div class="grid grid-cols-6 gap-4">
-            <table class="border-collapse table-auto w-full text-sm col-start-2 col-span-4">
+        <div class="table-container">
+            <table class="table">
                 <thead>
                     <tr>
-                        <th class="border border-slate-600 p-4">Flavor</th>
-                        <th class="border border-slate-600 p-4">Vendor</th>
-                        <th class="border border-slate-600 p-4">Price</th>
+                        <th class="table-cell">Flavor</th>
+                        <th class="table-cell">Vendor</th>
+                        <th class="table-cell">Price</th>
+                        <th class="table-cell">Date</th>
                     </tr>       
                 </thead>
                 <tbody>
                     {drinks.map((drink: Boba, idx: number) => (
                         <tr key={idx}>
-                            <td class="border border-slate-600 p-4">{drink.flavor}</td>
-                            <td class="border border-slate-600 p-4">{drink.vendor}</td>
-                            <td class="border border-slate-600 p-4">${drink.price}</td>
+                            <td class="table-cell">{drink.flavor}</td>
+                            <td class="table-cell">{drink.vendor}</td>
+                            <td class="table-cell">${drink.price}</td>
+                            <td class="table-cell">{drink.purchase_date}</td>
+
                         </tr>
                     ))}
                 </tbody>
             </table>
 
-            <div className="container col-span-1 col-start-5 p-4 text-center"  >
+            <div className="container col-span-full w-3/4 m-auto p-4 text-center"  >
                 <p class="rounded-lg rounded-b-none border-slate-950 bg-green-300 font-medium border-2 ml-3 p-1">Average price: </p>
                 <p class="text-lg font-medium rounded-t-none rounded-md border-slate-950 border-r-2 border-l-2 border-b-2 border-t-0 ml-3 p-1">
                     ${avgPrice}

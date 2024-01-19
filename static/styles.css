@@ -140,21 +140,65 @@ html {
 /**!SECTION
  * This is where my custom styles start for components rendered and not just theming
 */
+.layout-container {
+  @apply
+    bg-white
+    w-full
+    flex
+    flex-col
+    gap-4
+  ;
+}
+.header-content-layout {
+  @apply
+    py-6
+    px-8
+    flex
+    flex-col
+    w-full
+    place-content-center
+    max-w-screen-lg
+    m-auto
+    mb-36
+  ;
+}
 .branding {
   @apply
     text-3xl
-    text-center
-    p-6
+    ml-1
     tracking-wide
+    font-bold
   ;
 }
-.navigation {
+.boba-header-icon {
+  @apply
+    h-fit
+    w-10
+  ;
+}
+.footer-container {
   @apply
     fixed
     bottom-0
+    place-content-end
     w-full
-    ;
-  }
+    h-12
+    flex
+    flex-col 
+  ;
+}
+.message-container {
+  @apply
+    w-full
+    m-auto
+    text-center
+    md:w-1/2
+    /* opacity-0 */
+  ;
+}
+.navigation {
+
+}
 .links {
   @apply
     flex
@@ -164,22 +208,55 @@ html {
 }
 .nav-link {
   @apply
-  bg-slate-200
-    w-1/3
+    w-full
     p-4
     text-center
-    border-r-2
-    last:border-r-0
+    text-3xl 
+    font-bold
+    text-white
+    tracking-wider 
     border-slate-950
-
-
+    m-4
+    rounded-md
+    shadow-md
+  ;
+}
+/**!SECTION TABLE */
+.table-container {
+  @apply
+    grid 
+    grid-cols-6 
+    gap-4
+    rounded-md
+  ;
+}
+.table {
+  @apply
+    border-collapse 
+    table-auto 
+    w-full 
+    text-sm 
+    col-span-full 
+    m-auto 
+    mt-5
+    rounded-md
+  ;
+}
+.table-cell {
+  @apply
+    border 
+    border-slate-600 
+    p-2
+    rounded-md
+    text-lg
   ;
 }
 
+/**!SECTION FORM */
 .form-container {
   @apply 
     grid 
-    grid-cols-4 
+    col-span-full
     gap-4
   ;
 }
@@ -191,8 +268,6 @@ html {
   @apply 
     col-span-full 
     p-6
-    md:col-start-2 
-    md:col-end-4
   ;
 }
 .form-input {
@@ -205,7 +280,7 @@ html {
     text-xl
     p-4
     tracking-wider
-    md:col-span-4
+    /* md:col-span-4 */
   ;
 }
 .form-item {
