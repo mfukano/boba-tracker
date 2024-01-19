@@ -193,7 +193,7 @@ html {
     m-auto
     text-center
     md:w-1/2
-    /* opacity-0 */
+    opacity-0
   ;
 }
 .navigation {
