@@ -12,11 +12,13 @@ export const handler: Handlers = {
         const flavor = form.get("flavor")!.toString()
         const vendor = form.get("vendor")!.toString()
         const price = parseFloat(form.get("price")!.toString())
+        const purchase_date = form.get("purchase_date")!.toString()
 
         const boba: Boba = {
             flavor: flavor,
             vendor: vendor,
             price: price,
+            purchase_date: purchase_date
         }
 
         console.log(`submitted form: ${JSON.stringify(form)}`)
@@ -59,6 +61,12 @@ export default function Add() {
                             What was the price?
                         </label>
                         <Price />
+                    </div>
+                    <div className="form-item">
+                        <label htmlFor="Date">
+                            When did you get it?
+                        </label>
+                        <input class="form-input" type="text" name="vendor" value="today" required />
                     </div>
                     <button class="bg-teal-700 text-slate-50 p-6 text-xl rounded-md w-full" type="submit">Add Drink</button>
                 </form>
