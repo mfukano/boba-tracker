@@ -6,11 +6,24 @@ export async function getAllDrinks() {
         select
             flavor,
             vendor,
-            price
+            price,
+            purchase_date
         from purchases 
     `
 
-    return drinks
+    const bobaItemDrinks = drinks.map(drink => {
+        let src = {...drink};
+        let dateString = drink
+            .purchase_date
+            .toDateString()
+            .split(" ")
+            .slice(1)
+            .join(" ");
+        src.purchase_date = dateString;
+        return src; 
+    })
+
+    return bobaItemDrinks;
 }
 
 export async function insertDrink(drink: Boba) {
