@@ -6,7 +6,7 @@ export default function Layout({ Component }: PageProps) {
         <div className="header-content-layout">
             <div class="flex items-center flex-1">
                 <img class="boba-header-icon" src="assets/boba_inv_bg.png" alt="" />
-                <h1 class="branding">Maggie's Boba Tracker</h1>
+                <h1 class="branding">Boba Budget</h1>
             </div>
 
             <Component />
@@ -28,7 +28,7 @@ export default function Layout({ Component }: PageProps) {
             </div>
             <div className="navigation">
                 <ul class="links">
-                <a class="nav-link bg-blue-400" href="/boba">
+                <a class="nav-link bg-blue-400" href="/">
                     <li>Home</li>
                 </a>
                 <a class="nav-link bg-green-300" href="/add">

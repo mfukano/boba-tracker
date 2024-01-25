@@ -66,9 +66,9 @@ export default function Add() {
                         <label htmlFor="Date">
                             When did you get it?
                         </label>
-                        <input class="form-input" type="text" name="vendor" value="today" required />
+                        <input class="form-input" type="text" name="purchase_date" value="today" required />
                     </div>
-                    <button class="bg-teal-700 text-slate-50 p-6 text-xl rounded-md w-full" type="submit">Add Drink</button>
+                    <button class="add-drink" type="submit">Add Drink</button>
                 </form>
             </div>
         </div>

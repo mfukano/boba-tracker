@@ -1,25 +1,57 @@
-import { useSignal } from "@preact/signals";
-import Counter from "../islands/Counter.tsx";
+import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
+import { getAllDrinks, getAverageCost } from "./api/boba.ts";
+import { Boba } from "../models/boba.ts";
 
-export default function Home() {
-  const count = useSignal(3);
-  return (
-    <div class="px-4 py-8 mx-auto bg-[#86efac]">
-      <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
-        <img
-          class="my-6"
-          src="/logo.svg"
-          width="128"
-          height="128"
-          alt="the Fresh logo: a sliced lemon dripping with juice"
-        />
-        <h1 class="text-4xl font-bold">Welcome to Fresh</h1>
-        <p class="my-4">
-          Try updating this message in the
-          <code class="mx-2">./routes/index.tsx</code> file, and refresh.
-        </p>
-        <Counter count={count} />
-      </div>
-    </div>
-  );
+export const handler: Handlers<Boba> = {
+    async GET(req: Request, ctx: FreshContext) {
+
+        // -- DEBUG -- 
+        // console.log(`ctx: `);
+        // console.log(ctx);
+
+        // console.log(`req: `);
+        // console.log(req);
+        // -- END DEBUG
+        
+        const drinks = await getAllDrinks();
+        const avgPrice = await getAverageCost();
+        return ctx.render({ drinks, avgPrice });
+    }
+}
+
+export default function Page(props: PageProps) {
+    const { drinks, avgPrice } = props.data;
+    return (
+        <div className="wrapper">
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="table-cell">Flavor</th>
+                            <th class="table-cell">Vendor</th>
+                            <th class="table-cell">Price</th>
+                            <th class="table-cell">Date</th>
+                        </tr>       
+                    </thead>
+                    <tbody style={"border: none"}>
+                        {drinks.map((drink: Boba, idx: number) => (
+                            <tr key={idx}>
+                                <td class="table-cell">{drink.flavor}</td>
+                                <td class="table-cell">{drink.vendor}</td>
+                                <td class="table-cell">${drink.price}</td>
+                                <td class="table-cell">{drink.purchase_date}</td>
+
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+            <div className="container col-span-full w-3/4 m-auto p-4 text-center"  >
+                <p class="rounded-lg rounded-b-none border-slate-950 bg-green-300 font-medium border-2 ml-3 p-1">Average price: </p>
+                <p class="text-lg font-medium rounded-t-none rounded-md border-slate-950 border-r-2 border-l-2 border-b-2 border-t-0 ml-3 p-1">
+                    ${avgPrice}
+                </p>
+            </div>
+        </div>
+    );
 }
