@@ -20,7 +20,6 @@
     "@preact/signals": "https://esm.sh/*@preact/signals@1.2.1",
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.0",
     "$std/": "https://deno.land/std@0.208.0/",
-    "postgres": "https://deno.land/x/postgresjs@v3.4.3",
     "tailwind": "https://deno.land/x/fresh@1.6.3/plugins/tailwind.ts",
     "tailwindcss": "npm:tailwindcss@3.4.1",
     "tailwindcss/": "npm:/tailwindcss@3.4.1/",

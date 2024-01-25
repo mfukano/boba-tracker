@@ -1,4 +1,4 @@
-import postgres from "postgres";
+import postgres from "https://deno.land/x/postgresjs@v3.4.3/mod.js";
 import { load } from "https://deno.land/std@0.211.0/dotenv/mod.ts";
 
 const env = await load({ envPath: "./.env.production.local" });
