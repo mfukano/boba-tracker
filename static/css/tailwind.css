@@ -590,11 +590,6 @@ video {
   margin: auto;
 }
 
-.mx-2 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-}
-
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -628,10 +623,6 @@ video {
 
 .w-3\/4 {
   width: 75%;
-}
-
-.w-full {
-  width: 100%;
 }
 
 .max-w-screen-md {
@@ -684,6 +675,10 @@ video {
   border-top-right-radius: 0px;
 }
 
+.border {
+  border-width: 1px;
+}
+
 .border-2 {
   border-width: 2px;
 }
@@ -734,11 +729,6 @@ video {
   background-color: rgb(248 113 113 / var(--tw-bg-opacity));
 }
 
-.bg-teal-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(15 118 110 / var(--tw-bg-opacity));
-}
-
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -759,10 +749,6 @@ video {
 
 .p-4 {
   padding: 1rem;
-}
-
-.p-6 {
-  padding: 1.5rem;
 }
 
 .px-2 {
@@ -809,11 +795,6 @@ video {
   line-height: 1.75rem;
 }
 
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
 .font-bold {
   font-weight: 700;
 }
@@ -825,11 +806,6 @@ video {
 .tabular-nums {
   --tw-numeric-spacing: tabular-nums;
   font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
-}
-
-.text-slate-50 {
-  --tw-text-opacity: 1;
-  color: rgb(248 250 252 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -852,6 +828,12 @@ video {
   src: url("./fonts/GeistVariableVF.ttf")
 }
 
+@font-face {
+  font-family: "Rusty-Hooks";
+
+  src: url("./fonts/RustyHooksRegular-nROER.ttf")
+}
+
 *,
 *::before,
 *::after {
@@ -860,6 +842,7 @@ video {
 
 * {
   margin: 0;
+  font-family: Geist, sans-serif;
 }
 
 button {
@@ -1043,6 +1026,7 @@ html {
 
 .branding {
   margin-left: 0.25rem;
+  font-family: Rusty-Hooks, sans-serif;
   letter-spacing: 0.025em;
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -1050,8 +1034,7 @@ html {
 }
 
 .boba-header-icon {
-  height: -moz-fit-content;
-  height: fit-content;
+  height: 4rem;
   width: 2.5rem;
 }
 
@@ -1093,48 +1076,60 @@ html {
   border-radius: 0.375rem;
   --tw-border-opacity: 1;
   border-color: rgb(2 6 23 / var(--tw-border-opacity));
-  padding: 1rem;
-  text-align: center;
-  letter-spacing: 0.05em;
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+  padding: 0.75rem;
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+  border-width: 2px;
+}
+
+.nav-link li {
+  width: 100%;
+  text-align: center;
+  font-family: Rusty-Hooks, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  letter-spacing: 0.1em;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
   font-weight: 700;
 }
 
 /**!SECTION TABLE */
 
-.table-container {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 1rem;
-  border-radius: 0.375rem;
+.wrapper {
 }
 
-.table {
-  grid-column: 1 / -1;
+.table-container {
   margin: auto;
   margin-top: 1.25rem;
   width: 100%;
-  table-layout: auto;
-  border-collapse: collapse;
+  --tw-border-spacing-x: 0.25rem;
+  --tw-border-spacing-y: 0.25rem;
+  border-spacing: var(--tw-border-spacing-x) var(--tw-border-spacing-y);
   border-radius: 0.375rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+  border-width: 2px;
+}
+
+.table {
+  width: 100%;
+  table-layout: auto;
+  border-style: hidden;
 }
 
 .table-cell {
   border-radius: 0.375rem;
-  border-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(71 85 105 / var(--tw-border-opacity));
   padding: 0.5rem;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  border-width: 2px;
+}
+
+.table-cell td {
+  outline: 2px solid black;
+  outline-color: #64748b;
 }
 
 /**!SECTION FORM */
@@ -1177,6 +1172,20 @@ html {
   font-style: italic;
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+
+.add-drink {
+  width: 100%;
+  border-radius: 0.375rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(15 118 110 / var(--tw-bg-opacity));
+  padding: 1.5rem;
+  font-family: Rusty-Hooks, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  letter-spacing: 0.1em;
+  --tw-text-opacity: 1;
+  color: rgb(248 250 252 / var(--tw-text-opacity));
 }
 
 #add-boba-dialog {

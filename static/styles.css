@@ -7,6 +7,11 @@
   src: url("./fonts/GeistVariableVF.ttf")
 }
 
+@font-face {
+  font-family: "Rusty-Hooks";
+  src: url("./fonts/RustyHooksRegular-nROER.ttf")
+}
+
 *,
 *::before,
 *::after {
@@ -14,6 +19,9 @@
 }
 * {
   margin: 0;
+  @apply
+    font-geist
+  ;
 }
 button {
   color: inherit;
@@ -168,11 +176,12 @@ html {
     ml-1
     tracking-wide
     font-bold
+    font-rustyhooks
   ;
 }
 .boba-header-icon {
   @apply
-    h-fit
+    h-16
     w-10
   ;
 }
@@ -193,6 +202,12 @@ html {
     m-auto
     text-center
     md:w-1/2
+    /* 
+      This opacity-0 is hiding the notification container in _layout.tsx
+      The goal is to have this overrideable when there's a message to display,
+      but I need to figure out how to broadcast that to a different part of 
+      the vdom hierarchy.
+     */
     opacity-0
   ;
 }
@@ -209,46 +224,70 @@ html {
 .nav-link {
   @apply
     w-full
-    p-4
-    text-center
-    text-3xl 
-    font-bold
-    text-white
-    tracking-wider 
+    p-3
+    /* text-center */
+    /* text-xl */
+    /* font-bold */
+    /* text-white */
+    /* tracking-wider  */
     border-slate-950
+    border-2
     m-4
     rounded-md
     shadow-md
   ;
 }
+.nav-link li {
+  @apply
+    w-full
+    text-center
+    text-xl
+    font-bold
+  text-white
+    font-rustyhooks
+    tracking-widest
+  ;
+}
 /**!SECTION TABLE */
+.wrapper {
+
+}
 .table-container {
   @apply
-    grid 
+    /* grid 
     grid-cols-6 
-    gap-4
+    gap-4 */
+    border-2
     rounded-md
+    border-spacing-1
+    border-black
+    w-full
+    m-auto
+    mt-5
   ;
 }
 .table {
   @apply
-    border-collapse 
     table-auto 
     w-full 
-    text-sm 
-    col-span-full 
-    m-auto 
-    mt-5
-    rounded-md
+    border-hidden
+    /* col-span-full  */
+    /* rounded-md */
   ;
 }
 .table-cell {
   @apply
-    border 
-    border-slate-600 
+    border-2
     p-2
     rounded-md
-    text-lg
+    text-base
+  ;
+}
+.table-cell td {
+  outline: 2px solid black;
+  @apply 
+    outline-slate-500
+
   ;
 }
 
@@ -291,6 +330,17 @@ html {
 .form-item label {
   font-style: italic;
   @apply text-lg;
+}
+.add-drink {
+  @apply
+    bg-teal-700 
+    text-slate-50 
+    p-6 
+    text-xl 
+    rounded-md 
+    w-full font-rustyhooks
+    tracking-widest
+  ;
 }
 
 #add-boba-dialog {
