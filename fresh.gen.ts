@@ -7,8 +7,6 @@ import * as $_app from "./routes/_app.tsx";
 import * as $_layout from "./routes/_layout.tsx";
 import * as $about from "./routes/about.tsx";
 import * as $add from "./routes/add.tsx";
-import * as $api_boba from "./routes/api/boba.ts";
-import * as $api_joke from "./routes/api/joke.ts";
 import * as $boba from "./routes/boba.tsx";
 import * as $countdown from "./routes/countdown.tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
@@ -19,6 +17,7 @@ import * as $plain from "./routes/plain.tsx";
 import * as $search from "./routes/search.tsx";
 import * as $Countdown from "./islands/Countdown.tsx";
 import * as $Counter from "./islands/Counter.tsx";
+import * as $Month from "./islands/Month.tsx";
 import * as $Price from "./islands/Price.tsx";
 import { type Manifest } from "$fresh/server.ts";
 
@@ -29,8 +28,6 @@ const manifest = {
     "./routes/_layout.tsx": $_layout,
     "./routes/about.tsx": $about,
     "./routes/add.tsx": $add,
-    "./routes/api/boba.ts": $api_boba,
-    "./routes/api/joke.ts": $api_joke,
     "./routes/boba.tsx": $boba,
     "./routes/countdown.tsx": $countdown,
     "./routes/greet/[name].tsx": $greet_name_,
@@ -43,6 +40,7 @@ const manifest = {
   islands: {
     "./islands/Countdown.tsx": $Countdown,
     "./islands/Counter.tsx": $Counter,
+    "./islands/Month.tsx": $Month,
     "./islands/Price.tsx": $Price,
   },
   baseUrl: import.meta.url,
