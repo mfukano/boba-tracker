@@ -38,9 +38,8 @@ export default function Page(props: PageProps) {
                             <tr key={idx}>
                                 <td class="table-cell">{drink.flavor}</td>
                                 <td class="table-cell">{drink.vendor}</td>
-                                <td class="table-cell">${drink.price}</td>
+                                <td class="table-cell">${drink.price.toFixed(2)}</td>
                                 <td class="table-cell">{drink.purchase_date}</td>
-
                             </tr>
                         ))}
                     </tbody>

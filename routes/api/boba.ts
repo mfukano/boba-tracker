@@ -11,13 +11,13 @@ export async function getAllDrinks() {
         from purchases 
     `
 
-    const bobaItemDrinks = drinks.map(drink => {
+    const bobaItemDrinks = drinks.map((drink: Boba) => {
         let src = {...drink};
         let dateString = drink
             .purchase_date
-            .toDateString()
+            .toString()
             .split(" ")
-            .slice(1)
+            .slice(0, 4)
             .join(" ");
         src.purchase_date = dateString;
         return src; 
@@ -41,8 +41,8 @@ export async function getAverageCost() {
         select price from purchases
     `;
 
-    const total = drinks.reduce((acc, drink) => {
-       return acc + parseFloat(drink.price)
+    const total = drinks.reduce((acc: number, drink: Boba) => {
+       return acc + drink.price
     }, 0);
     const avg = (total / drinks.length).toFixed(2)
 
