@@ -12,10 +12,6 @@ const url = env["POSTGRES_URL"]
 console.log(`SQL URL TEST: ${url}`)
 
 const sql = postgres(url, {
-    user,
-    password,
-    host,
-    database,
     connect_timeout: 10,
 });
 
