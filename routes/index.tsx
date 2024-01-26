@@ -1,5 +1,5 @@
 import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
-import { getAllDrinks, getAverageCost } from "../api/boba.ts";
+import { getAllDrinks, getAverageCost } from "./api/boba.ts";
 import { Boba } from "../models/boba.ts";
 
 export const handler: Handlers<Boba> = {
