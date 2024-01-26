@@ -1,6 +1,7 @@
-import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
-import { getAllDrinks, getAverageCost } from "./api/boba.ts";
+import { FreshContext, Handlers, PageProps, defineRoute } from "$fresh/server.ts";
+import { getAllDrinks, getAverageCost } from "../api/boba.ts";
 import { Boba } from "../models/boba.ts";
+import Month from "../islands/Month.tsx";
 
 export const handler: Handlers<Boba> = {
     async GET(req: Request, ctx: FreshContext) {
@@ -19,16 +20,25 @@ export const handler: Handlers<Boba> = {
     }
 }
 
+
 export default function Page(props: PageProps) {
     const { drinks, avgPrice } = props.data;
+ 
     return (
         <div className="wrapper">
+            {/* Month and month selector should go here */}
+            <Month />
             <div class="table-container">
                 <table class="table">
                     <thead>
                         <tr>
                             <th class="table-cell">Flavor</th>
                             <th class="table-cell">Vendor</th>
+                            {/* 
+                                Price and Date need to be client-side components
+                                and thusly moved into islands to bind click handler
+                                calls onto them
+                             */}
                             <th class="table-cell">Price</th>
                             <th class="table-cell">Date</th>
                         </tr>       
@@ -38,7 +48,7 @@ export default function Page(props: PageProps) {
                             <tr key={idx}>
                                 <td class="table-cell">{drink.flavor}</td>
                                 <td class="table-cell">{drink.vendor}</td>
-                                <td class="table-cell">${drink.price.toFixed(2)}</td>
+                                <td class="table-cell">${drink.price}</td>
                                 <td class="table-cell">{drink.purchase_date}</td>
                             </tr>
                         ))}

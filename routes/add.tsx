@@ -1,13 +1,13 @@
 import { Handlers } from "$fresh/server.ts";
 import Price from "../islands/Price.tsx";
 import { Boba } from "../models/boba.ts";
-import { insertDrink } from "./api/boba.ts";
+import { insertDrink } from "../api/boba.ts";
 
 export const handler: Handlers = {
-    async GET(req, ctx) {
+    async GET(_req, ctx) {
         return await ctx.render();
     },
-    async POST(req, ctx) {
+    async POST(req, _ctx) {
         const form = await req.formData();
         const flavor = form.get("flavor")!.toString()
         const vendor = form.get("vendor")!.toString()
@@ -17,7 +17,7 @@ export const handler: Handlers = {
         const boba: Boba = {
             flavor: flavor,
             vendor: vendor,
-            price: price,
+            price: price.toString(),
             purchase_date: purchase_date
         }
 
