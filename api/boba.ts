@@ -1,6 +1,5 @@
 import sql from "../models/index.ts";
 import { Boba } from "../models/boba.ts";
-import { Handlers } from "$fresh/server.ts";
 
 export async function getAllDrinks() {
     const drinks = await sql`
@@ -13,8 +12,8 @@ export async function getAllDrinks() {
     `
 
     const bobaItemDrinks = drinks.map((drink: Boba) => {
-        let src = {...drink};
-        let dateString = drink
+        const src = {...drink};
+        const dateString = drink
             .purchase_date
             .toString()
             .split(" ")
@@ -34,8 +33,8 @@ export async function getAllDrinksFromMonth(month: string) {
 
 export async function insertDrink(drink: Boba) {
     const inserted = await sql`
-        insert into purchases(flavor, price, vendor)
-        values (${drink.flavor}, ${parseFloat(drink.price)}, ${drink.vendor})
+        insert into purchases(flavor, price, vendor, purchase_date)
+        values (${drink.flavor}, ${parseFloat(drink.price)}, ${drink.vendor}, ${drink.purchase_date})
         returning *
     `
     return inserted;

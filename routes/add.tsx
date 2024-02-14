@@ -12,7 +12,19 @@ export const handler: Handlers = {
         const flavor = form.get("flavor")!.toString()
         const vendor = form.get("vendor")!.toString()
         const price = parseFloat(form.get("price")!.toString())
-        const purchase_date = form.get("purchase_date")!.toString()
+        let purchase_date = form.get("purchase_date")!.toString()
+
+        // IF the purchase date is a human string rather than a datestring
+        if (!purchase_date.valueOf().match(/[0-9]/)) {
+            if (purchase_date.valueOf() == "today") {
+                purchase_date = new Date().toJSON().slice(0, 10)
+            }
+            if (purchase_date.valueOf() == "yesterday") {
+                const date = new Date();
+                date.setDate(date.getDate() - 1);
+                purchase_date = date.toJSON().slice(0, 10);
+            }
+        }
 
         const boba: Boba = {
             flavor: flavor,
@@ -46,7 +58,7 @@ export default function Add() {
                 <form method="post" className="boba-form">
                     <div className="form-item">
                         <label htmlFor="flavor">
-                            What flavor did you get? 
+                            What drink did you get? 
                         </label>
                         <input class="form-input" type="text" name="flavor" value="" required />
                     </div>
@@ -64,7 +76,7 @@ export default function Add() {
                     </div>
                     <div className="form-item">
                         <label htmlFor="Date">
-                            When did you get it?
+                            When did you get it? (today, yesterday, yyyy-mm-dd)
                         </label>
                         <input class="form-input" type="text" name="purchase_date" value="today" required />
                     </div>
