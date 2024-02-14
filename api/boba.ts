@@ -20,6 +20,7 @@ export async function getAllDrinks() {
             .slice(0, 4)
             .join(" ");
         src.purchase_date = dateString;
+        src.price = parseFloat(drink.price.toFixed(2));
         return src; 
     })
 
