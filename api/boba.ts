@@ -9,10 +9,11 @@ export async function getAllDrinks() {
             price,
             purchase_date
         from purchases 
+        order by purchase_date desc;
     `
 
-    const bobaItemDrinks = drinks.map((drink: Boba) => {
-        const src = {...drink};
+    const bobaItemDrinks: Boba[] = drinks.map((drink) => {
+        const src = {...drink as Boba};
         const dateString = drink
             .purchase_date
             .toString()
@@ -37,17 +38,20 @@ export async function insertDrink(drink: Boba) {
     return inserted;
 }
 
-export async function getAverageCost() {
-    const drinks = await sql`
-        select price from purchases
-    `;
-
+function getAverageCost(drinks: Boba[]) {
     const total = drinks.reduce((acc: number, drink: Boba) => {
        return acc + drink.price
     }, 0);
     const avg = (total / drinks.length).toFixed(2)
 
     return avg;
+}
+
+export async function getBobaPageProps() {
+    const drinks: Boba[] = await getAllDrinks();
+    const avgCost = getAverageCost(drinks);
+
+    return { drinks, avgCost };
 }
 /* 
  TODO: add missing handler functions 
