@@ -13,12 +13,13 @@ import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $html from "./routes/html.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $page from "./routes/page.tsx";
+import * as $partials_Footer from "./routes/partials/Footer.tsx";
 import * as $plain from "./routes/plain.tsx";
 import * as $search from "./routes/search.tsx";
 import * as $Countdown from "./islands/Countdown.tsx";
 import * as $Counter from "./islands/Counter.tsx";
-import * as $Month from "./islands/Month.tsx";
 import * as $Price from "./islands/Price.tsx";
+import * as $PurchaseTable from "./islands/PurchaseTable.tsx";
 import { type Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -34,14 +35,15 @@ const manifest = {
     "./routes/html.tsx": $html,
     "./routes/index.tsx": $index,
     "./routes/page.tsx": $page,
+    "./routes/partials/Footer.tsx": $partials_Footer,
     "./routes/plain.tsx": $plain,
     "./routes/search.tsx": $search,
   },
   islands: {
     "./islands/Countdown.tsx": $Countdown,
     "./islands/Counter.tsx": $Counter,
-    "./islands/Month.tsx": $Month,
     "./islands/Price.tsx": $Price,
+    "./islands/PurchaseTable.tsx": $PurchaseTable,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;

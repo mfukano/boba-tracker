@@ -43,7 +43,7 @@ export const handler: Handlers = {
          */
 
         const headers = new Headers();
-        headers.set("location", "/boba");
+        headers.set("location", "/");
         return new Response(JSON.stringify(result), {
             status: 303,
             headers,

@@ -8,11 +8,16 @@ const CONN_INFO: ServeHandlerInfo = {
 };
 
 Deno.test("HTTP assert test.", async (t) => {
-    // TODO!
-    // const handler = await createHandler(manifest, config);
+    const handler = await createHandler(manifest, config);
 
-    // await t.step("#1 GET /", async () => {
-    //     const resp = await handler(new Request("http://127.0.0.1/"), CONN_INFO);
-    //     assertEquals(resp.status, 200);
-    // });
-})
+    /**!SECTION 
+        TODO! This test currently fails because of an issue with leaky async ops
+        There might be a test framework we can slot in here instead (Jest, Puppeteer, Cypress) 
+        to complete behavior and unit testing but the default from the example doesn't work
+        https://fresh.deno.dev/docs/examples/writing-tests
+    */ 
+    await t.step("#1 GET /", async () => {
+        const resp = await handler(new Request("http://127.0.0.1/"), CONN_INFO);
+        assertEquals(resp.status, 200);
+    });
+});

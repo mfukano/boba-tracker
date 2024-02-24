@@ -578,6 +578,10 @@ video {
   }
 }
 
+.static {
+  position: static;
+}
+
 .col-span-full {
   grid-column: 1 / -1;
 }
