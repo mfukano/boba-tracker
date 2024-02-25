@@ -20,7 +20,7 @@ export default async function Page(_req: Request, _ctx: FreshContext) {
     const { drinks, avgCost } = await getBobaPageProps()
     return (
         <div className="wrapper">
-            <PurchaseTable drinks={drinks!} />
+            {drinks && <PurchaseTable drinks={drinks!} />}
             <div className="container col-span-full w-3/4 m-auto p-4 text-center"  >
                 <p class="rounded-lg rounded-b-none border-slate-950 bg-green-300 font-medium border-2 ml-3 p-1">Average cost: </p>
                 <p class="text-lg font-medium rounded-t-none rounded-md border-slate-950 border-r-2 border-l-2 border-b-2 border-t-0 ml-3 p-1">
