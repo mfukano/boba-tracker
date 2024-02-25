@@ -1136,6 +1136,16 @@ html {
   outline-color: #64748b;
 }
 
+th:nth-last-child(-n+2):active {
+  background-color: beige;
+  border-radius: 0;
+  box-shadow: inset 0px 0px 5px #c1c1c1;
+}
+
+th:last-child:active {
+  border-top-right-radius: 0.375rem;
+}
+
 /**!SECTION FORM */
 
 .form-container {
